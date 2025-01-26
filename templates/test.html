@@ -1,0 +1,16 @@
+{% extends 'basepage.html' %}
+{% load static %}
+    {% block content1 %}
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ forms }}
+        <input type="submit" value = "Add Product" class="btn btn-secondary">
+    </form>
+
+
+
+    {% endblock %}
+
+
+
+<!-- CSRF Cross Site Request Forgery Attack-->

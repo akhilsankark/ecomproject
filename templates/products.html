@@ -1,0 +1,36 @@
+{% extends 'basepage.html' %}
+{% load static %}
+
+{% block content2 %}
+
+        {% endblock %}
+
+
+{% block content1 %}
+
+<div>
+  <p style="text-align:center; font-size:50px;">Our Products are !!!</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        {% for i in product %}
+        <div class="col-9 col-md-3" style="margin-left: 5px;margin-right: 5px">
+            <div class="card border shadow-sm mb-3" style="width: 18rem;">
+              <div class="text-center">
+                  <img src="{{i.image.url}}" alt="productimage" width=200px, height=200px">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text">{{i.desc}}</p>
+                <p class="card-text" style="color:red"><b><i>Rs. {{i.price}}</i></b></p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+                <a href="#" class="btn btn-primary">Add to Wishlist</a>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

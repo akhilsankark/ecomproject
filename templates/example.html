@@ -1,0 +1,30 @@
+{% extends 'basepage.html' %}
+{% load static %}
+  {% block content %}
+
+    <img src="{% static 'images/girl1.jpg' %}" alt="wallpaper" style="height:600px; width:1600px;">
+
+    <div>
+        <p style="text-align:center; font-size:50px;">Our Products Collection !!!</p>
+    </div>
+<div class="container">
+  <div class="row">
+{% for i in product %}
+<div class="col-9 col-md-3">
+    <div class="card" style="width: 18rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="product image" style="height:300px; width:300px;">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">Rs {{i.price}}</p>
+
+    <a href="#" class="btn btn-primary">Add to Cart</a>
+  </div>
+</div>
+
+</div>
+{% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+

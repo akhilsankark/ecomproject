@@ -1,0 +1,35 @@
+{% extends 'basepage.html' %}
+{% load static %}
+
+
+{% block content1 %}
+
+
+<div>
+  <p style="text-align:center; font-size:50px;">Dashboard</p>
+</div>
+<div class="container">
+    <div class="row">
+        {% for i in product %}
+        <div class="col-9 col-md-3" style="margin-left: 5px;margin-right: 5px">
+            <div class="card border shadow-sm mb-3" style="width: 18rem;">
+              <div class="text-center">
+                  <img src="{{i.image.url}}" alt="productimage" width=200px, height=200px">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text">{{i.desc}}</p>
+                <p class="card-text" style="color:red"><b><i>Rs. {{i.price}}</i></b></p>
+
+                <a href="{% url 'edit_products' i.id %}" class="btn btn-primary">Edit Product</a>
+                <a href="{% url 'delete_products' i.id %}" class="btn btn-danger">Delete Product</a>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    <a href="{% url 'add_products' %}" class="btn btn-primary">Add a new Product</a>
+</div>
+
+{% endblock %}

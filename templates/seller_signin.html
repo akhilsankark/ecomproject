@@ -1,0 +1,32 @@
+{% extends "basepage.html" %}
+{% load static %}
+{% block title %}Add product {% endblock title %}
+{% block content1 %}
+<h1> Enter your credentials and login</h1>
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{% if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<form method="post" action="/signin/">
+    {% csrf_token %}
+    <label for="">Username</label>
+    <input type="text" id="username" name="username" placeholder="Enter your username" Required>
+    <br>
+
+    <label for="">Password</label>
+    <input type="password" id="password1" name="password1" placeholder="Enter your password" Required>
+    <br>
+
+
+    <button type="submit">Sign in</button>
+
+
+</form>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'basepage.html' %}
+{% load static %}
+
+{% block content1 %}
+<style>
+    .category-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px;
+    }
+
+    .category-item {
+        text-align: center;
+        margin: 10px;
+    }
+
+    .category-item img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%; /* Makes the image circular */
+        object-fit: cover;
+    }
+
+    .category-label {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .view-all-button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .view-all-button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<div class="about">
+    <p style="
+        text-align: justify;
+        font-size: 16px;
+        line-height: 1.6;
+        font-family: Arial, sans-serif;
+        margin: 20px auto;
+        max-width: 800px;
+        color: #333;
+    ">
+        <strong>Welcome to <span style="color: #ff5722;">ASK Mart</span></strong> — the ultimate all-in-one e-commerce destination for all your shopping needs! We offer a wide range of products, from electronics and home appliances to fashion, groceries, and more. Our user-friendly interface and secure payment options make shopping easy and convenient. Discover unbeatable deals, high-quality items, and fast delivery services tailored to enhance your online shopping experience. Whether you're looking for the latest tech gadgets, stylish apparel, or everyday essentials, <strong>ASK Mart</strong> has it all. Join thousands of satisfied customers and start exploring the best of online shopping today!
+    </p>
+</div>
+
+<div>
+    <p style="text-align:center; font-size:50px;">Our Products are !!!</p>
+</div>
+
+<div>
+    {% if request.user.is_authenticated %}
+        <p style="text-align:center; color: green; font-size: 20px;">Welcome back, {{ request.user.username }}! Check out our latest offers.</p>
+    {% else %}
+        <p style="text-align:center; color: red; font-size: 20px;">Hello, Guest! <a href="{% url 'signin' %}">Signin</a> to explore more personalized deals.</p>
+    {% endif %}
+</div>
+
+<div class="category-container">
+    <div class="category-item">
+        <img src="{% static 'images/Electronics.jpeg' %}" alt="Electronics">
+        <div class="category-label">Electronics</div>
+    </div>
+    <div class="category-item">
+        <img src="{% static 'images/home_app.jpeg' %}" alt="Home Appliances">
+        <div class="category-label">Home Appliances</div>
+    </div>
+    <div class="category-item">
+        <img src="{% static 'images/fashion.jpeg' %}" alt="Fashion">
+        <div class="category-label">Fashion</div>
+    </div>
+    <div class="category-item">
+        <img src="{% static 'images/grocery.jpeg' %}" alt="Grocery">
+        <div class="category-label">Grocery</div>
+    </div>
+    <div class="category-item">
+        <img src="{% static 'images/home_imp.jpeg' %}" alt="Home Improvement">
+        <div class="category-label">Home Improvement</div>
+    </div>
+    <div class="category-item">
+        <img src="{% static 'images/furniture.jpeg' %}" alt="Furniture">
+        <div class="category-label">Furniture</div>
+    </div>
+    <div class="category-item">
+        <img src="{% static 'images/auto.jpeg' %}" alt="Auto Accessories">
+        <div class="category-label">Auto Accessories</div>
+    </div>
+</div>
+{% endblock %}

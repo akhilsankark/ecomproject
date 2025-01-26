@@ -1,0 +1,86 @@
+{% extends 'basepage.html' %}
+{% load static %}
+    {% block content1 %}
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F0F8FF;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #00BFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #00008B;
+}
+
+form input,
+form textarea,
+form select,
+form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+form .form-group {
+    margin-bottom: 20px;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+
+    </style>
+
+<div class="container">
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ forms }}
+        <input type="submit" value = "Add Product" class="btn btn-secondary">
+    </form>
+
+</div>
+
+    {% endblock %}
+
+
+
+<!-- CSRF Cross Site Request Forgery Attack-->
